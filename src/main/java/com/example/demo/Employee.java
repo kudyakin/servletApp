@@ -3,12 +3,11 @@ package com.example.demo;
 public class Employee {
 
     private int id;
-    private String name;
-    private String country;
-    private String email;
-    private String telnumber;
-    private String surname;
-    private String age;
+    private String carmark;
+    private String carmodel;
+    private String enginevolume;
+    private String drive;
+    private String year;
 
     public int getId() {
         return id;
@@ -18,61 +17,53 @@ public class Employee {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCarmark() {
+        return carmark;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCarmark(String carmark) {
+        this.carmark = carmark;
     }
 
-    public String getCountry() {
-        return country;
+    public String getCarmodel() {
+        return carmodel;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCarmodel(String carmodel) {
+        this.carmodel = carmodel;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEnginevolume() {
+        return enginevolume;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEnginevolume(String enginevolume) {
+        this.enginevolume = enginevolume;
     }
 
-    public String getTelnumber() {
-        return telnumber;
-    }
-    public void setTelnumber(String telnumber) {
-        this.telnumber = telnumber;
+    public String getDrive() {
+        return drive;
     }
 
-    public String getSurname() {
-        return surname;
+    public void setDrive(String drive) {
+        this.drive = drive;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public String getYear() {
+        return year;
     }
 
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
+    public void setYear(String year) {
+        this.year = year;
     }
 
     @Override
     public String toString() {
         return "Employee{" + "id=" + id +
-                ", name='" + name + '\'' +
-                ", country='" + country + '\'' +
-                ", email='" + email + '\'' +
-                ", telnumber='" + telnumber + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age + '}';
+                ", carmark='" + carmark + '\'' +
+                ", carmodel='" + carmodel + '\'' +
+                ", enginevolume='" + enginevolume + '\'' +
+                ", drive='" + drive + '\'' +
+                ", year='" + year + '\'' + '}';
     }
 }

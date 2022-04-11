@@ -41,13 +41,12 @@ public class EmployeeRepository {
         int status = 0;
         try {
             Connection connection = EmployeeRepository.getConnection();
-            PreparedStatement ps = connection.prepareStatement("insert into users(name,email,country,telnumber,surname,age) values (?,?,?,?,?,?)");
-            ps.setString(1, employee.getName());
-            ps.setString(2, employee.getEmail());
-            ps.setString(3, employee.getCountry());
-            ps.setString(4, employee.getTelnumber());
-            ps.setString(5, employee.getSurname());
-            ps.setString(6, employee.getAge());
+            PreparedStatement ps = connection.prepareStatement("insert into cars(carmark,carmodel,enginevolume,drive,year) values (?,?,?,?,?)");
+            ps.setString(1, employee.getCarmark());
+            ps.setString(2, employee.getCarmodel());
+            ps.setString(3, employee.getEnginevolume());
+            ps.setString(4, employee.getDrive());
+            ps.setString(5, employee.getYear());
 
             status = ps.executeUpdate();
             connection.close();
@@ -64,14 +63,13 @@ public class EmployeeRepository {
 
         try {
             Connection connection = EmployeeRepository.getConnection();
-            PreparedStatement ps = connection.prepareStatement("update users set name=?,email=?,country=?,telnumber=?,surname=?,age=? where id=?");
-            ps.setString(1, employee.getName());
-            ps.setString(2, employee.getEmail());
-            ps.setString(3, employee.getCountry());
-            ps.setString(4, employee.getTelnumber());
-            ps.setString(5, employee.getSurname());
-            ps.setString(6, employee.getAge());
-            ps.setInt(7, employee.getId());
+            PreparedStatement ps = connection.prepareStatement("update cars set carmark=?,carmodel=?,enginevolume=?,drive=?,year=? where id=?");
+            ps.setString(1, employee.getCarmark());
+            ps.setString(2, employee.getCarmodel());
+            ps.setString(3, employee.getEnginevolume());
+            ps.setString(4, employee.getDrive());
+            ps.setString(5, employee.getYear());
+            ps.setInt(6, employee.getId());
 
             status = ps.executeUpdate();
             connection.close();
@@ -88,7 +86,7 @@ public class EmployeeRepository {
 
         try {
             Connection connection = EmployeeRepository.getConnection();
-            PreparedStatement ps = connection.prepareStatement("delete from users where id=?");
+            PreparedStatement ps = connection.prepareStatement("delete from cars where id=?");
             ps.setInt(1, id);
             status = ps.executeUpdate();
 
@@ -106,17 +104,16 @@ public class EmployeeRepository {
 
         try {
             Connection connection = EmployeeRepository.getConnection();
-            PreparedStatement ps = connection.prepareStatement("select * from users where id=?");
+            PreparedStatement ps = connection.prepareStatement("select * from cars where id=?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 employee.setId(rs.getInt(1));
-                employee.setName(rs.getString(2));
-                employee.setEmail(rs.getString(3));
-                employee.setCountry(rs.getString(4));
-                employee.setTelnumber(rs.getString(5));
-                employee.setSurname(rs.getString(6));
-                employee.setAge(rs.getString(7));
+                employee.setCarmark(rs.getString(2));
+                employee.setCarmodel(rs.getString(3));
+                employee.setEnginevolume(rs.getString(4));
+                employee.setDrive(rs.getString(5));
+                employee.setYear(rs.getString(6));
             }
             connection.close();
 
@@ -132,7 +129,7 @@ public class EmployeeRepository {
 
         try {
             Connection connection = EmployeeRepository.getConnection();
-            PreparedStatement ps = connection.prepareStatement("select * from users");
+            PreparedStatement ps = connection.prepareStatement("select * from cars");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -140,12 +137,11 @@ public class EmployeeRepository {
                 Employee employee = new Employee();
 
                 employee.setId(rs.getInt(1));
-                employee.setName(rs.getString(2));
-                employee.setEmail(rs.getString(3));
-                employee.setCountry(rs.getString(4));
-                employee.setTelnumber(rs.getString(5));
-                employee.setSurname(rs.getString(6));
-                employee.setAge(rs.getString(7));
+                employee.setCarmark(rs.getString(2));
+                employee.setCarmodel(rs.getString(3));
+                employee.setEnginevolume(rs.getString(4));
+                employee.setDrive(rs.getString(5));
+                employee.setYear(rs.getString(6));
 
                 listEmployees.add(employee);
             }
