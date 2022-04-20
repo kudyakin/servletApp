@@ -14,13 +14,22 @@ public class ViewByIDServlet extends HttpServlet {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+try {
+    String sid = request.getParameter("id");
+    int id = Integer.parseInt(sid);
 
-        String sid = request.getParameter("id");
-        int id = Integer.parseInt(sid);
+    Employee employee = EmployeeRepository.getEmployeeById(id);
 
-        Employee employee = EmployeeRepository.getEmployeeById(id);
+    if (employee.getId() == 0) {
+        throw new IOException("wrong ID");
+    }
 
-        out.print(employee);
+    out.print(employee);
+}
+catch (Throwable e) {
+out.print ("not exist ID");
+        }
+
         out.close();
     }
 }
