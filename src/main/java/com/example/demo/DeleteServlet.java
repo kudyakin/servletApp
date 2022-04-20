@@ -26,8 +26,8 @@ public class DeleteServlet extends HttpServlet {
                 throw new IOException("wrong ID");
             }
             EmployeeRepository.delete(id);
-//            out.print ("ID deleted successfully!");
-            response.sendRedirect("viewServlet");
+//            response.sendRedirect("viewServlet");
+            out.print ("ID deleted successfully!");
         }
 
         catch (Throwable e) {
